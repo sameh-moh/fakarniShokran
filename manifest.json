@@ -1,0 +1,11 @@
+
+{
+    "name": "Fakarni Shokran",
+    "version": "1.0",
+    "description": "A cool extension",
+    "permissions": ["storage", "tabs"],
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html"
+      }
+}
