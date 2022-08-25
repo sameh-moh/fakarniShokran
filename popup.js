@@ -3,19 +3,32 @@ document.getElementById("btn").addEventListener("click",sendRequest);
 function sendRequest(creds)
 {
 
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  if(creds && creds.username && creds.password)
+  {
+
+   username = creds.username;
+   password = creds.password;
+  }
+
+
+  console.log(username);
+
 fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openid-connect/token', {
     method: 'POST',
     headers:{
       'Content-Type': 'application/x-www-form-urlencoded',
       'accept' : 'application/json'
-    },    
+    },
     body: new URLSearchParams({
         'grant_type' : "password",
         'client_id' : "exceed-frontend",
         'client_secret' : "13692c99-485f-4993-b93c-dfb2bb262e87",
         'scope' : "openid",
-        'username' : creds.username || document.getElementById("username").value,
-        'password' : creds.password || document.getElementById("password").value
+        'username' : username,
+        'password' : password
     })
 }).then(res => {
 
@@ -34,7 +47,14 @@ fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openi
         });
     }
     else
-    document.getElementById("alert").innerHTML = "Invalid credentials.";
+    {
+      if(!creds.username && !creds.password)
+      {
+          document.getElementById("alert").innerHTML = "Invalid Credentials";
+      }
+
+    }
+    console.log("failure");
 
 })
 
@@ -69,7 +89,7 @@ function getData(){
                         document.getElementById("noData").classList.remove('d-block');
                         document.getElementById("todo").classList.remove('d-none');
                         document.getElementById("todo").classList.add('d-block');
-            
+
                     } else {
                         document.getElementById("todo").classList.add('d-none');
                         document.getElementById("todo").classList.remove('d-block');
@@ -88,7 +108,7 @@ function getData(){
                 });
             }
      });
-    });    
+    });
 };
 
 getData();
