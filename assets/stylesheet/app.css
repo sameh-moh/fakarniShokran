@@ -52,8 +52,16 @@ input:focus-visible {
 .end-date {
     margin-bottom: 6px;
 }
+.remaining-days b {
+    color: #09aa24;
+}
+
 .remaining-days .danger {
     color: #eb1919;
+}
+
+.remaining-days .warning {
+    color: #F6AE3D;
 }
 
 h4 {

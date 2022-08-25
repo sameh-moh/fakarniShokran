@@ -56,7 +56,14 @@ function getData(data){
                 }
                 revieweesHtml += "";
                 document.getElementById("deadline").innerHTML = deadlineDate.toDateString();
-                document.getElementById("countDown").innerHTML = Math.floor((deadlineDate.getTime() - new Date())/ (1000 * 3600 * 24));
+                var remainingDays= Math.floor((deadlineDate.getTime() - new Date())/ (1000 * 3600 * 24));
+                document.getElementById("countDown").innerHTML = remainingDays;
+                if (remainingDays<=3) {
+                    document.getElementById("countDown").classList.add('danger');
+                }
+                if (remainingDays<10 && remainingDays>3) {
+                    document.getElementById("countDown").classList.add('warning');
+                }
                 document.getElementById("data").innerHTML =revieweesHtml;
                 document.getElementById("noData").classList.add('d-none');
                 document.getElementById("noData").classList.remove('d-block');
