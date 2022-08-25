@@ -12,21 +12,22 @@
      <form id="login" class="d-none">
         <input type="text" placeholder="name" id="username"/>
         <input type="password" placeholder="password" id="password"/>
-        <button id="btn" type="button" >login</button> 
+        <button id="btn" type="button" >login</button>
+        <p id="alert"></p> 
     </form>
 
     <!-- list -->
     <div class="list d-none" id="todo">
         <div class="date">
             <p class="end-date">End Date: <b class="date-value" id="deadline">20/8/2022</b></p>
-            <div class="remaining-days"><b class="danger" id="countDown">3</b> days left</div>
+            <div class="remaining-days"><b id="countDown">3</b> days left</div>
         </div>
         <h4>To-Do List</h4>
         <ul id="data"></ul>
     </div>
     <div class="empty-content d-none" id="noData">
         <img src="./assets/images/done.png" alt="take a break" class="done-img" />
-        <p>Take a break</p>
+        <p>Take a break! No more reviews to submit</p>
     </div>
     <script src='popup.js'></script>
 </body>

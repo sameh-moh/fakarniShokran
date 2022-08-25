@@ -49,8 +49,19 @@ input:focus-visible {
 .date-value {
     color: #F6AE3D;
 }
+.end-date {
+    margin-bottom: 6px;
+}
+.remaining-days b {
+    color: #09aa24;
+}
+
 .remaining-days .danger {
     color: #eb1919;
+}
+
+.remaining-days .warning {
+    color: #F6AE3D;
 }
 
 h4 {
@@ -59,6 +70,7 @@ h4 {
 
 ul {
     padding-left: 25px;
+    margin-bottom: 20px;
 }
 li {
     margin-bottom: 4px;

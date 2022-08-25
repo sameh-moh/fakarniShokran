@@ -1,9 +1,3 @@
-//on click listener for log in button
-//get email and password from DOM elements in HTML
-
-const button = document.getElementById("btn");
-
-
 document.getElementById("btn").addEventListener("click",sendRequest);
 
 function sendRequest(creds)
@@ -40,7 +34,7 @@ fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openi
         });
     }
     else
-    console.log("failure");
+    document.getElementById("alert").innerHTML = "Invalid credentials.";
 
 })
 
