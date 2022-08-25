@@ -7,5 +7,8 @@
     "manifest_version": 3,
     "action": {
         "default_popup": "popup.html"
-      }
+      },
+    "icons": {
+      "32": "./assets/images/exceed.png"
+    }
 }
