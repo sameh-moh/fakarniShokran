@@ -1,0 +1,77 @@
+@import "./assets/stylesheet/form";
+body {
+    width: 330px;  
+    background-color: #f7f7f7c4;
+}
+h1 {
+    color: #3C4262;
+    font-size: 17px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* form */
+form {
+    padding: 8px 0;
+    text-align: center;
+}
+input {
+    border-radius: 5px;
+    display: block;
+    border: 1px solid #a7a8ac;
+    padding: 5px;
+    margin: 0 auto 10px;
+}
+button {
+    background-color: #F6AE3D;
+    color: #fff;
+    border-color: #F6AE3D;
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    font-weight: bold;
+}
+input:focus-visible {
+    outline: none;
+}
+
+/* list */
+.list {
+    padding: 0 10px;
+}
+.date {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.date-value {
+    color: #F6AE3D;
+}
+.remaining-days .danger {
+    color: #eb1919;
+}
+
+h4 {
+    margin-bottom: 7px;
+}
+
+ul {
+    padding-left: 25px;
+}
+li {
+    margin-bottom: 4px;
+}
+
+li::marker {
+    color: #F6AE3D;
+    background-color: #F6AE3D;
+}
+
+.empty-content {
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+    margin-bottom: 18px;
+}
