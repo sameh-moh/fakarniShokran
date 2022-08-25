@@ -9,14 +9,13 @@
 </head>
 <body>
     <h1>Fakarni Shokran</h1>
-     <form>
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <button>login</button> 
+     <form id="login" class="d-block">
+        <input type="text" placeholder="name" id="username"/>
+        <input type="password" placeholder="password" id="password"/>
+        <button id="btn" type="button" >login</button> 
     </form>
 
     <!-- list -->
-    <h1>Fakarni Shokran</h1>
     <div class="list d-none" id="todo">
         <div class="date">
             <p class="end-date">End Date: <b class="date-value" id="deadline">20/8/2022</b></p>
@@ -29,6 +28,6 @@
         <img src="./assets/images/done.png" alt="take a break" class="done-img" />
         <p>Take a break</p>
     </div>
+    <script src='popup.js'></script>
 </body>
-<script src="data.js"></script>
 </html>

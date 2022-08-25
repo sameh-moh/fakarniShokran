@@ -5,9 +5,15 @@
     "description": "A cool extension",
     "permissions": ["storage", "tabs"],
     "manifest_version": 3,
+    "chrome_url_overrides" : {
+      "newtab": "index.html"
+    },
     "action": {
         "default_popup": "popup.html"
       },
+    "host_permissions":
+      ["https://exceed-keycloak.espace.ws/*",
+      "http://localhost:8080/*"],
     "icons": {
       "32": "./assets/images/exceed.png"
     }
