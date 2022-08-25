@@ -1,6 +1,8 @@
-@import "./assets/stylesheet/form";
+*{
+  box-sizing: border-box;
+}
 body {
-    width: 330px;  
+    width: 330px;
     background-color: #f7f7f7c4;
 }
 h1 {
@@ -74,4 +76,11 @@ li::marker {
 p {
     font-size: 14px;
     margin-bottom: 18px;
+}
+
+.home {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 99%;
 }
