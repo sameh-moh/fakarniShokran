@@ -25,6 +25,19 @@ fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openi
         'username' : document.getElementById("username").value,
         'password' : document.getElementById("password").value
     })
-}).then(res => console.log(res))
+}).then(res => {
+
+    if(res.status == 200)
+    {
+        res.json().then(data=> {
+            chrome.storage.local.set({token: data.access_token}, function() {
+                console.log('Value is set to ' + data.access_token);
+              });
+        });
+    }
+    else
+    console.log("failure");
+
+})
 
 }
