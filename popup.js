@@ -76,7 +76,6 @@ function getData(){
                         }
                         revieweesHtml += "";
                         document.getElementById("deadline").innerHTML = deadlineDate.toDateString();
-                        //document.getElementById("countDown").innerHTML = Math.floor((deadlineDate.getTime() - new Date())/ (1000 * 3600 * 24));
                         document.getElementById("data").innerHTML =revieweesHtml;
 
                         var remainingDays= Math.floor((deadlineDate.getTime() - new Date())/ (1000 * 3600 * 24));
