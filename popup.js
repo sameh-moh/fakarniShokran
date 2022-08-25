@@ -3,7 +3,13 @@
 
 const username = "hebatullah.ahmed"
 const password = "1234567890"
+const button = document.getElementById("btn");
 
+
+document.getElementById("btn").addEventListener("click",sendRequest);
+
+function sendRequest()
+{
 
 fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openid-connect/token', {
     method: 'POST',
@@ -16,15 +22,9 @@ fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openi
         'client_id' : "exceed-frontend",
         'client_secret' : "13692c99-485f-4993-b93c-dfb2bb262e87",
         'scope' : "openid",
-        'username' : username,
-        'password' : password
+        'username' : document.getElementById("username").value,
+        'password' : document.getElementById("password").value
     })
 }).then(res => console.log(res))
 
-// fetch('http://localhost:8080/login',
-// {
-//     method: 'POST', 
-//     headers: {'accept' : 'application/json' ,  'Content-Type': 'application/json'} , 
-//     body: JSON.stringify({'username':username, 'password':password})})
-// .then(res => res.json().then(data=>console.log(data)));
-
+}
