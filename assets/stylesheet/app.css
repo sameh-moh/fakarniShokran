@@ -75,3 +75,9 @@ p {
     font-size: 14px;
     margin-bottom: 18px;
 }
+.d-none {
+    display: none;
+}
+.d-block {
+    display: block;
+}
