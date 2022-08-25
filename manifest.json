@@ -8,7 +8,10 @@
     "action": {
         "default_popup": "popup.html"
       },
-      "host_permissions":
+    "host_permissions":
       ["https://exceed-keycloak.espace.ws/*",
-      "http://localhost:8080/*"]
+      "http://localhost:8080/*"],
+    "icons": {
+      "32": "./assets/images/exceed.png"
+    }
 }
