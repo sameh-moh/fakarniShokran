@@ -8,13 +8,10 @@ function sendRequest(creds)
 
   if(creds && creds.username && creds.password)
   {
-
    username = creds.username;
    password = creds.password;
   }
 
-
-  console.log(username);
 
 fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openid-connect/token', {
     method: 'POST',
@@ -41,7 +38,6 @@ fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openi
             };
             chrome.storage.local.set({creds: creds}, function() {});
             chrome.storage.local.set({token: data.access_token}, function() {
-                console.log('Value is set to ' + data.access_token);
                 getData();
               });
         });
@@ -54,15 +50,12 @@ fetch('https://exceed-keycloak.espace.ws/auth/realms/exceed_realm/protocol/openi
       }
 
     }
-    console.log("failure");
-
 })
 
 }
 
 function getData(){
     chrome.storage.local.get(['token'], function(result) {
-        console.log('Value currently is ' + result);
         fetch('https://interns-exceed.espace.ws/api/v1/reviews/todo?page=1', {
             method: 'GET',
             headers: {
@@ -83,12 +76,26 @@ function getData(){
                         }
                         revieweesHtml += "";
                         document.getElementById("deadline").innerHTML = deadlineDate.toDateString();
-                        document.getElementById("countDown").innerHTML = Math.floor((deadlineDate.getTime() - new Date())/ (1000 * 3600 * 24));
+                        //document.getElementById("countDown").innerHTML = Math.floor((deadlineDate.getTime() - new Date())/ (1000 * 3600 * 24));
                         document.getElementById("data").innerHTML =revieweesHtml;
+
+                        var remainingDays= Math.floor((deadlineDate.getTime() - new Date())/ (1000 * 3600 * 24));
+                        document.getElementById("countDown").innerHTML = remainingDays;
+
+                        if (remainingDays<=3) {
+                   document.getElementById("countDown").classList.add('danger');
+               }
+               if (remainingDays<10 && remainingDays>3) {
+                   document.getElementById("countDown").classList.add('warning');
+               }
+
+
                         document.getElementById("noData").classList.add('d-none');
                         document.getElementById("noData").classList.remove('d-block');
                         document.getElementById("todo").classList.remove('d-none');
                         document.getElementById("todo").classList.add('d-block');
+
+                        console.log(document.getElementById("countDown").value);
 
                     } else {
                         document.getElementById("todo").classList.add('d-none');
@@ -101,7 +108,6 @@ function getData(){
                 });
             } else if (res.status == 401){ //Show login in failure
                 chrome.storage.local.get(['creds'], function(result) {
-                    console.log('Value currently is ' + result);
                     sendRequest(result.creds);
                     document.getElementById("login").classList.add('d-block');
                     document.getElementById("login").classList.remove('d-none');
